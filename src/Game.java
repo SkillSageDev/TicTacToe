@@ -9,6 +9,7 @@ public class Game {
     int currentPlayer = 0;
     Board board = new Board();
 
+    // asks to start the game or to quite the game 
     public void startGame() {
         int choice = menu.main();
         while (true) {
@@ -25,10 +26,12 @@ public class Game {
         }
     }
 
+    // the game loop
     public void playGame() {
         while (true) {
             playTurn();
             if (winCheck() || drawCheck()) {
+                board.printBoard();
                 int choice = menu.end();
                 while (choice == 1 || choice == 2) {
                     if (choice == 1) {
@@ -50,6 +53,7 @@ public class Game {
         playGame();
     }
 
+    // checks if someone won or no
     public boolean winCheck() {
         int[][] winConditions = {
                 { 0, 1, 2 }, { 3, 4, 5 }, { 6, 7, 8 },
@@ -65,6 +69,7 @@ public class Game {
         return false;
     }
 
+    // checks if it is a draw or no
     public boolean drawCheck() {
         for (char c : board.board) {
             if (!winCheck() && Character.isDigit(c)) {
@@ -74,6 +79,7 @@ public class Game {
         return true;
     }
 
+    // make sure that every player got his symbol right
     public void setupPlayers() {
         players[0].chooseSymbol();
         if (players[0].symbol == 'x')
@@ -84,6 +90,7 @@ public class Game {
                 + p2.symbol + "\"");
     }
 
+    // make players play and switch their turn
     public void playTurn() {
         board.printBoard();
         while (true) {
@@ -95,10 +102,12 @@ public class Game {
         }
     }
 
+    // switch players
     public void switchPlayer() {
         currentPlayer = 1 - currentPlayer;
     }
 
+    // place player's symbol on board
     public void replaceSymbol() {
         System.out.println("Player " + (currentPlayer + 1) + " , select a number");
         while (true) {
@@ -118,6 +127,7 @@ public class Game {
         }
     }
 
+    // prints Thanks for playing!
     public void quiteGame() {
         System.out.println("Thanks for playing!");
     }

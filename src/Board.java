@@ -6,10 +6,12 @@ public class Board {
     int value = 1;
     public char[] board = {'1','2','3','4','5','6','7','8','9'};
 
+    // creat a new char[] list in board
     public void creatBoard(){
         board = new char[]{'1','2','3','4','5','6','7','8','9'};
     }
 
+    // prints board
     public void printBoard(){
         for (int i = 0; i < board.length; i++){
             if (i != 2 && i != 5 && i != 8){
@@ -24,6 +26,8 @@ public class Board {
         }
         System.out.println("\n");
     }
+    
+    // updates the current board by using (player choosen number)(player's symbol)
     public boolean updateBoard(int choice, char symbol){
         if (isValidMove(choice)){
             board[choice-1] = symbol;
@@ -32,59 +36,62 @@ public class Board {
         return false;
     }
     
-    // checks if the index contains a digit not x or o
+    // checks if the board contains a digit
     public boolean isValidMove(int choice) {
-        // we do minus 1 because the list index starts from 0
+        // we do (choice - 1) because the list index starts from 0
         return Character.isDigit(board[choice-1]);
     }
-
-    public boolean winCheck() {
-        int[][] winConditions = {
-                { 0, 1, 2 }, { 3, 4, 5 }, { 6, 7, 8 },
-                { 0, 3, 6 }, { 1, 4, 7 }, { 2, 5, 8 },
-                { 0, 4, 8 }, { 2, 4, 6 }
-        };
-        for (int[] condition : winConditions) {
-            if (board[condition[0]] == board[condition[1]]
-                    && board[condition[1]] == board[condition[2]]) {
-                        return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean drawCheck() {
-        for (char c : board) {
-            if (!winCheck() && !Character.isDigit(c)) {
-                return true;
-            }
-        }
-        return false;
-    }
     
-    public static void main(String[] args) {
-        Board board = new Board();
-        boolean isDigit = false;
-        for(char c : board.board){
-            isDigit = Character.isDigit(c);
-        }
-        System.out.println("isDigit = " + isDigit);
-        boolean checkWin = board.winCheck();
-        boolean checkDraw = board.drawCheck();
-        System.out.println("Win is " + checkWin);
-        System.out.println("Draw is " + checkDraw);
-        board.creatBoard();
-        for(char c : board.board){
-            isDigit = Character.isDigit(c);
-        }
-        checkWin = board.winCheck();
-        checkDraw = board.drawCheck();
-        System.out.println();
-        System.out.println("isDigit = " + isDigit);
-        System.out.println("Win is " + checkWin);
-        System.out.println("Draw is " + checkDraw);
-    }
-}
+    /*  
+    * debugging
+     public boolean winCheck() {
+         int[][] winConditions = {
+                 { 0, 1, 2 }, { 3, 4, 5 }, { 6, 7, 8 },
+                 { 0, 3, 6 }, { 1, 4, 7 }, { 2, 5, 8 },
+                 { 0, 4, 8 }, { 2, 4, 6 }
+         };
+         for (int[] condition : winConditions) {
+             if (board[condition[0]] == board[condition[1]]
+                     && board[condition[1]] == board[condition[2]]) {
+                         return true;
+             }
+         }
+         return false;
+     }
+ 
+     public boolean drawCheck() {
+         for (char c : board) {
+             if (!winCheck() && !Character.isDigit(c)) {
+                 return true;
+             }
+         }
+         return false;
+     }
+     
+     public static void main(String[] args) {
+         Board board = new Board();
+         boolean isDigit = false;
+         for(char c : board.board){
+             isDigit = Character.isDigit(c);
+         }
+         System.out.println("isDigit = " + isDigit);
+         boolean checkWin = board.winCheck();
+         boolean checkDraw = board.drawCheck();
+         System.out.println("Win is " + checkWin);
+         System.out.println("Draw is " + checkDraw);
+         board.creatBoard();
+         for(char c : board.board){
+             isDigit = Character.isDigit(c);
+         }
+         checkWin = board.winCheck();
+         checkDraw = board.drawCheck();
+         System.out.println();
+         System.out.println("isDigit = " + isDigit);
+         System.out.println("Win is " + checkWin);
+         System.out.println("Draw is " + checkDraw);
+     }
+     */
+ }
 
 // Old Code
 /* 
