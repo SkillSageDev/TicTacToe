@@ -4,7 +4,7 @@ public class Board {
     Scanner input = new Scanner(System.in);
     int range = 9;
     int value = 1;
-    public char[] board = {'1','2','3','4','5','6','7','8','9'};
+    char[] board = {'1','2','3','4','5','6','7','8','9'};
 
     // creat a new char[] list in board
     public void creatBoard(){

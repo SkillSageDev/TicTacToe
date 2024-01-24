@@ -18,7 +18,7 @@ public class Game {
                 playGame();
                 choice = 0;
             } else if (choice == 2) {
-                quiteGame();
+                quitGame();
                 break;
             } else {
                 choice = menu.main();
@@ -128,7 +128,7 @@ public class Game {
     }
 
     // prints Thanks for playing!
-    public void quiteGame() {
+    public void quitGame() {
         System.out.println("Thanks for playing!");
     }
 }
