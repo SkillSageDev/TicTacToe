@@ -14,6 +14,7 @@ public class Game {
         int choice = menu.main();
         while (true) {
             if (choice == 1) {
+                board.creatBoard();
                 setupPlayers();
                 playGame();
                 choice = 0;

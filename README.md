@@ -260,7 +260,7 @@ If you only want the game, (the .exe file), you can download it from [here]().
 
 - get his input and store it in `choice` variable, then **start an infinit loop**.
 
-  - if `choice == 1`, it runs `setupPlayers()` & [`playGame()`](#2-playgame) methods.
+  - if `choice == 1`, it runs `board.creatBoard()` to creat a new board, and runs `setupPlayers()` & [`playGame()`](#2-playgame) methods.
 
   - then set `choice` to 0.
 
